@@ -20,7 +20,14 @@ data:
     - groups:
       - roboshop-trainee 
       userarn: arn:aws:iam::406214277354:user/bharathieks 
-      username: k8s-bharathi 
+      username: k8s-bharathi
+    - groups:
+      - roboshop-trainee 
+      userarn: arn:aws:iam::406214277354:user/ramesheks 
+      username: k8s-ramesh 
+        
+      
+
 
 kind: ConfigMap
 metadata:
