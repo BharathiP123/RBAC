@@ -1,0 +1,31 @@
+##With help of aws-auth we can map IAM identies to kubernets 
+##EKS uses IAM for authentication.
+##Kubernetes itself doesn’t understand IAM directly.
+##The aws-auth ConfigMap acts as a bridge, mapping IAM users/roles → Kubernetes usernames and groups.
+###      - roboshop-trainee  -- role name
+##     userarn: arn:aws:iam::406214277354:user/bharathieks  --- IAM user arn 
+##    username: k8s-bharathi  -- kbuernes username 
+##
+
+apiVersion: v1
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::406214277354:role/eksctl-roboshop-dev-nodegroup                                                    -robo-NodeInstanceRole-xLBkqEjD2mY1
+      groups:
+      - system:bootstrappers
+      - system:nodes
+      username: system:node:{{EC2PrivateDNSName}}
+
+  mapUsers: |
+    - groups:
+      - roboshop-trainee 
+      userarn: arn:aws:iam::406214277354:user/bharathieks 
+      username: k8s-bharathi 
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-12-12T16:17:01Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "1304"
+  uid: dc995dad-cdef-431d-8340-c2f6826c4c08
