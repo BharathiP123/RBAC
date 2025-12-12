@@ -22,6 +22,14 @@ data:
       userarn: arn:aws:iam::406214277354:user/bharathieks
       username: k8s-bharathi
     - groups:
+      - roboshop-trainee 
+      userarn: arn:aws:iam::406214277354:user/Rahimeks
+      username: k8s-Rahime
+    - groups:
+      - roboshop-trainee 
+      userarn: arn:aws:iam::406214277354:user/jhoneks
+      username: k8s-jhon
+    - groups:
       - roboshop-admin
       userarn: arn:aws:iam::406214277354:user/ramesheks
       username: k8s-ramesh
